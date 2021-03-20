@@ -13,6 +13,15 @@ function addItem(item){
   return true;
 }//end addItem function
 
+// function addItem(item){
+//   if(isFull() === false){
+//     basket.push(item);
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }//end addItem function
+
 console.log('Testing addItem function. Each item added should return true.');
 console.log('A new item was added to your basket:', addItem('socks'));
 console.log(`Basket is now ${basket}`);
@@ -49,3 +58,41 @@ console.log('Basket is', basket);
 console.log(`Basket is ${basket}`);
 
 //***STRETCH GOALS***
+
+//add global const named maxItems set to 5
+const maxItems = 5;
+
+//created a function called isFull
+function isFull(array){
+  if (array.length < maxItems){
+    return false;
+  } else if (array.length >= maxItems){
+    return true;
+  }//end conditional
+}//end isFull function
+
+// function isFull(basket){
+//   for(let i=0; i<basket.length; i++){
+//     if( i < maxItems){
+//       return false;
+//     } else if (i >= maxItems){
+//       return true;
+//     }//end conditional
+//   }//end for loop
+// }//end isFull function
+
+console.log('Testing isFull function.');
+console.log('Currently the basket is empty so this should return False.', isFull(basket));
+
+console.log('A new item was added to your basket:', addItem('socks'));
+console.log(`Basket is now ${basket}`);
+console.log('A new item was added to your basket:', addItem('sweater'));
+console.log(`Basket is now ${basket}`);
+console.log('A new item was added to your basket:', addItem('gloves'));
+console.log(`Basket is now ${basket}`);
+console.log('A new item was added to your basket:', addItem('stocking hat'));
+console.log(`Basket is now ${basket}`);
+console.log('A new item was added to your basket:', addItem('sunglasses'));
+console.log(`Basket is now ${basket}`);
+
+console.log('Currently the basket is full so this should return True.', isFull(basket));
