@@ -19,7 +19,7 @@ function addItem(item){
 //     return true;
 //   } else {
 //     return false;
-//   }
+//   } //end conditional
 // }//end addItem function
 
 console.log('Testing addItem function. Each item added should return true.');
@@ -71,28 +71,38 @@ function isFull(array){
   }//end conditional
 }//end isFull function
 
-// function isFull(basket){
-//   for(let i=0; i<basket.length; i++){
-//     if( i < maxItems){
-//       return false;
-//     } else if (i >= maxItems){
-//       return true;
-//     }//end conditional
-//   }//end for loop
-// }//end isFull function
-
 console.log('Testing isFull function.');
 console.log('Currently the basket is empty so this should return False.', isFull(basket));
 
 console.log('A new item was added to your basket:', addItem('socks'));
 console.log(`Basket is now ${basket}`);
+console.log('Is the basket full?', isFull(basket));
 console.log('A new item was added to your basket:', addItem('sweater'));
 console.log(`Basket is now ${basket}`);
+console.log('Is the basket full?', isFull(basket));
 console.log('A new item was added to your basket:', addItem('gloves'));
 console.log(`Basket is now ${basket}`);
+console.log('Is the basket full?', isFull(basket));
 console.log('A new item was added to your basket:', addItem('stocking hat'));
 console.log(`Basket is now ${basket}`);
+console.log('Is the basket full?', isFull(basket));
 console.log('A new item was added to your basket:', addItem('sunglasses'));
 console.log(`Basket is now ${basket}`);
+console.log('Is the basket full?', isFull(basket));
 
 console.log('Currently the basket is full so this should return True.', isFull(basket));
+
+//created a function called removeItem
+function removeItem(item){
+  for(let i=0; i<basket.length; i++){
+    if(basket.indexOf(item) === i){
+      return i;
+    }//end conditional
+  }//end for loop
+}//end removeItem function
+
+console.log('Testing removeItem function');
+console.log('The index for gloves is:', removeItem('gloves'));
+console.log('Shyla is not an item in the basket so she is:', removeItem('Shyla'));
+console.log('The index for sunglasses is:', removeItem('sunglasses'));
+console.log('The index for socks is:', removeItem('socks'));
