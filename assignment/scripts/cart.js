@@ -57,7 +57,7 @@ console.log(listItems(basket)); //Why is this logging as undefined?
 function empty(){
   basket = [];
   return basket;
-}
+}//end empty function
 
 console.log('Testing empty function. Basket should now be empty.');
 console.log(empty());
@@ -66,7 +66,7 @@ console.log(`Basket is ${basket}`);
 
 //***STRETCH GOALS***
 
-// //add global const named maxItems set to 5
+// //add global const named maxItems set to 5 (see above)
 // const maxItems = 5;
 
 //created a function called isFull
@@ -116,12 +116,15 @@ console.log('Currently the basket is full so this should return True.', isFull(b
 
 //created a function called removeItem using indexOf() and splice()
 function removeItem(item){
-  for(let i=0; i<basket.length; i++){
-    if(basket.indexOf(item) === i){
-      basket.splice(item)
+  console.log(item);
+  let index = basket.indexOf(item);
+  console.log(index);
+    if(index !== -1){
+      basket.splice(index, 1);
+      return item;
+    }else{
+      return null;
     }//end conditional
-  }//end for loop
-  return item;
 }//end removeItem function
 
 console.log('Testing removeItem function, part 2 splice()');
