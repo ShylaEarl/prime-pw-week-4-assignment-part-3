@@ -7,20 +7,23 @@ let basket = [];
 console.log('Basket is', basket);
 console.log(`Basket is ${basket}`);
 
-//created a function called addItem
-function addItem(item){
-  basket.push(item);
-  return true;
-}//end addItem function
+//add global const named maxItems set to 5
+const maxItems = 5;
 
+//created a function called addItem
 // function addItem(item){
-//   if(isFull() === false){
-//     basket.push(item);
-//     return true;
-//   } else {
-//     return false;
-//   } //end conditional
+//   basket.push(item);
+//   return true;
 // }//end addItem function
+
+function addItem(item){
+  if(isFull(basket) === false){
+    basket.push(item);
+    return true;
+  } else {
+    return false;
+  } //end conditional
+}//end addItem function
 
 console.log('Testing addItem function. Each item added should return true.');
 console.log('A new item was added to your basket:', addItem('socks'));
@@ -29,11 +32,15 @@ console.log('A new item was added to your basket:', addItem('sweater'));
 console.log(`Basket is now ${basket}`);
 console.log('A new item was added to your basket:', addItem('gloves'));
 console.log(`Basket is now ${basket}`);
-console.log('A new item was added to your basket:', addItem());
-console.log(`Basket is now ${basket}`);
+// console.log('A new item was added to your basket:', addItem());
+// console.log(`Basket is now ${basket}`);
 console.log('A new item was added to your basket:', addItem('stocking hat'));
 console.log(`Basket is now ${basket}`);
 console.log('A new item was added to your basket:', addItem('sunglasses'));
+console.log(`Basket is now ${basket}`);
+console.log('A new item was added to your basket:', addItem('earrings'));
+console.log(`Basket is now ${basket}`);
+console.log('A new item was added to your basket:', addItem('necklace'));
 console.log(`Basket is now ${basket}`);
 
 //created function called listItems
@@ -59,8 +66,8 @@ console.log(`Basket is ${basket}`);
 
 //***STRETCH GOALS***
 
-//add global const named maxItems set to 5
-const maxItems = 5;
+// //add global const named maxItems set to 5
+// const maxItems = 5;
 
 //created a function called isFull
 function isFull(array){
@@ -92,17 +99,37 @@ console.log('Is the basket full?', isFull(basket));
 
 console.log('Currently the basket is full so this should return True.', isFull(basket));
 
-//created a function called removeItem
+//created a function called removeItem using indexOf()
+// function removeItem(item){
+//   for(let i=0; i<basket.length; i++){
+//     if(basket.indexOf(item) === i){
+//       return i;
+//     } //end conditional
+//   }//end for loop
+// }//end removeItem function
+//
+// console.log('Testing removeItem function, part 1 indexOf()');
+// console.log('The index for gloves is:', removeItem('gloves'));
+// console.log('Shyla is not an item in the basket so she is:', removeItem('Shyla'));
+// console.log('The index for sunglasses is:', removeItem('sunglasses'));
+// console.log('The index for socks is:', removeItem('socks'));
+
+//created a function called removeItem using indexOf() and splice()
 function removeItem(item){
   for(let i=0; i<basket.length; i++){
     if(basket.indexOf(item) === i){
-      return i;
+      basket.splice(item)
     }//end conditional
   }//end for loop
+  return item;
 }//end removeItem function
 
-console.log('Testing removeItem function');
-console.log('The index for gloves is:', removeItem('gloves'));
-console.log('Shyla is not an item in the basket so she is:', removeItem('Shyla'));
-console.log('The index for sunglasses is:', removeItem('sunglasses'));
-console.log('The index for socks is:', removeItem('socks'));
+console.log('Testing removeItem function, part 2 splice()');
+console.log('This item has been removed from your basket:', removeItem('gloves'));
+console.log(`Basket is now ${basket}`);
+console.log('This item has been removed from your basket:', removeItem('Shyla'));
+console.log(`Basket is now ${basket}`);
+console.log('This item has been removed from your basket:', removeItem('sunglasses'));
+console.log(`Basket is now ${basket}`);
+console.log('This item has been removed from your basket:', removeItem('socks'));
+console.log(`Basket is now ${basket}`);
